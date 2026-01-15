@@ -15,6 +15,8 @@ use SimpleXMLElement;
  */
 class ProductCatalog extends HIMSA_XML
 {
+    protected ?NS $namespace = NS::PI;
+
     protected array $casts = [
         'CatalogId' => 'string',
         'CatalogCreationDate' => 'datetime',
@@ -28,12 +30,5 @@ class ProductCatalog extends HIMSA_XML
     public function version(): string
     {
         return (string) $this->xml['version'];
-    }
-
-    public function __get(string $name): mixed
-    {
-        $value = $this->xml->children(NS::PI->value)->$name;
-
-        return $this->cast($name, $value);
     }
 }

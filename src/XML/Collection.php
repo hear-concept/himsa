@@ -10,14 +10,17 @@ use Illuminate\Support\Collection as BaseCollection;
 
 class Collection extends BaseCollection
 {
-    public function __construct(SimpleXMLElement $xml, string $key, string $class, ?NS $namespace = null)
+    public function __construct(protected SimpleXMLElement $xml, string $key, string $class, ?NS $namespace = null)
     {
         if ($namespace)
             $xml = $xml->children($namespace->value);
 
         foreach ($xml->$key as $item)
         {
-            $this->items[] = new $class($item);
+            if ($class == 'string')
+                $this->items[] = (string) $item;
+            else
+                $this->items[] = new $class($item);
         }
     }
 

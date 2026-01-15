@@ -5,13 +5,24 @@ namespace HearConcept\HIMSA\XML;
 use Exception;
 use Illuminate\Support\Carbon;
 use SimpleXMLElement;
+use function doubleval;
 use function is_array;
 
 abstract class HIMSA_XML
 {
+    protected SimpleXMLElement $xml;
+
     protected array $casts = [];
 
-    public function __construct(protected SimpleXMLElement $xml) {}
+    protected ?NS $namespace = null;
+
+    public function __construct(SimpleXMLElement $xml)
+    {
+        if ($this->namespace)
+            $this->xml = $xml->children($this->namespace->value);
+        else
+            $this->xml = $xml;
+    }
 
     protected function cast(string $key, SimpleXMLElement $value): mixed
     {
@@ -25,12 +36,15 @@ abstract class HIMSA_XML
             return new $class($value, ...$castTo);
         }
 
+        $str = (string) $value;
+
         return match ($castTo)
         {
-            'string' => (string) $value,
-            'int', 'number', 'integer' => (int) (string) $value,
-            'datetime', 'date', 'time' => Carbon::create($value),
-            'bool', 'boolean' => (string) $value === 'false' ? false : true,
+            'string' => $str == '' ? null : $str,
+            'int', 'number', 'integer' => $str == '' ? null : intval($str),
+            'datetime', 'date', 'time' => $str == '' ? null : Carbon::create($str),
+            'bool', 'boolean' => $str === 'false' ? false : true,
+            'double', 'float', 'decimal' => $str == '' ? null : doubleval($str),
             SimpleXMLElement::class => $value,
             default => new $castTo($value),
         };

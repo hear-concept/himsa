@@ -1,6 +1,6 @@
 {
     "name": "hear-concept/himsa",
-    "description": "HIMSA Helper package for reading HIMSA files.",
+    "description": "HIMSA Helper package for reading HIMSA files and adding helpers for IDEs.",
     "type": "library",
     "license": "MIT",
     "autoload": {
