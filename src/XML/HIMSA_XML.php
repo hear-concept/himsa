@@ -10,15 +10,37 @@ use function is_array;
 
 abstract class HIMSA_XML
 {
-    protected SimpleXMLElement $xml;
+    protected SimpleXMLElement|array $xml;
 
     protected array $casts = [];
 
+    /**
+     * @var NS|null Global namespace for all entries. For more detailed entry definition use $namespaces property
+     */
     protected ?NS $namespace = null;
+
+    /**
+     * @var array Definition of namespaces and each entry connected to it
+     */
+    protected array $namespaces = [];
 
     public function __construct(SimpleXMLElement $xml)
     {
-        if ($this->namespace)
+        if (!empty($this->namespaces))
+        {
+            $this->xml = [];
+
+            foreach ($this->namespaces as $namespace => $keys)
+            {
+                $children = $xml->children($namespace);
+
+                foreach ($keys as $key)
+                {
+                    $this->xml[$key] = $children;
+                }
+            }
+        }
+        elseif ($this->namespace)
             $this->xml = $xml->children($this->namespace->value);
         else
             $this->xml = $xml;
@@ -57,7 +79,10 @@ abstract class HIMSA_XML
 
     public function __get(string $name)
     {
-        $value = $this->xml->$name;
+        if (is_array($this->xml))
+            $value = $this->xml[$name];
+        else
+            $value = $this->xml->$name;
 
         return $this->cast($name, $value);
     }

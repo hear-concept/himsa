@@ -8,6 +8,8 @@ namespace HearConcept\HIMSA\XML;
  */
 class Identification extends HIMSA_XML
 {
+    protected ?NS $namespace = NS::PI;
+
     protected array $casts = [
         'ManufacturerItemId' => 'string',
         'ThirdPartyReferenceCollection' => [Collection::class, 'ThirdPartyReference', ThirdPartyReference::class],
