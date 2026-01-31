@@ -15,6 +15,8 @@ use SimpleXMLElement;
  */
 class ProductCatalog extends HIMSA_XML
 {
+    public readonly string $version;
+
     protected ?NS $namespace = NS::PI;
 
     protected array $casts = [
@@ -27,8 +29,9 @@ class ProductCatalog extends HIMSA_XML
         'BrandCollection' => [Collection::class, 'Brand', Brand::class],
     ];
 
-    public function version(): string
+    public function __construct(SimpleXMLElement $xml)
     {
-        return (string) $this->xml['version'];
+        $this->version = (string) $xml['version'];
+        parent::__construct($xml);
     }
 }
