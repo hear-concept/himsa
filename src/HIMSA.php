@@ -27,7 +27,7 @@ class HIMSA
      * @return bool For versions of lower than 1.1.0 it will always return true
      * @throws
      */
-    public function validate(string $catalogFile, string $relationshipTableFile, string $catalogSchemaFile, string $relationshipTableSchemaFile): mixed
+    public static function validate(string $catalogFile, string $relationshipTableFile, string $catalogSchemaFile, string $relationshipTableSchemaFile): mixed
     {
         if (version_compare(HIMSA::catalog($catalogFile)->version(), '1.1.0', '<'))
             return true;
@@ -38,13 +38,13 @@ class HIMSA
         $xml->loadXML(simplexml_load_file($catalogFile)->asXML());
 
         if (!$xml->schemaValidate(storage_path("$catalogSchemaFile")))
-            throw new HIMSAValidationException("Failed to validate HIMSA Product Catalog");
+            return false;
 
         $xml = new DOMDocument();
         $xml->loadXML(simplexml_load_file($relationshipTableFile)->asXML());
 
         if (!$xml->schemaValidate(storage_path("$relationshipTableSchemaFile")))
-            throw new HIMSAValidationException("Failed to validate HIMSA Product Catalog");
+            return false;
 
         return true;
     }

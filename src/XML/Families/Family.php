@@ -3,13 +3,10 @@
 namespace HearConcept\HIMSA\XML\Families;
 
 use HearConcept\HIMSA\XML\HIMSA_XML;
+use HearConcept\HIMSA\XML\LevelInformation;
+use SimpleXMLElement;
 
-/**
- * @property-read string $Name
- */
 abstract class Family extends HIMSA_XML
 {
-    protected array $casts = [
-        'Name' => 'string',
-    ];
+
 }

@@ -3,6 +3,7 @@
     "description": "HIMSA Helper package for reading HIMSA files and adding helpers for IDEs.",
     "type": "library",
     "license": "MIT",
+    "version": "0.1.0",
     "autoload": {
         "psr-4": {
             "HearConcept\\HIMSA\\": "src/"
@@ -15,7 +16,7 @@
         }
     ],
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.4",
         "illuminate/support": "^v12.0.0",
         "nesbot/carbon": "^3.0.0"
     }

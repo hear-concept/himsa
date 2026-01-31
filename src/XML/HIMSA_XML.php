@@ -7,6 +7,7 @@ use Illuminate\Support\Carbon;
 use SimpleXMLElement;
 use function doubleval;
 use function is_array;
+use function str_contains;
 
 abstract class HIMSA_XML
 {

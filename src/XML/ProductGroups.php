@@ -8,12 +8,12 @@ use HearConcept\HIMSA\XML\Families\{ALDFamily, CONFamily, FEFamily, GCFamily, HA
 /**
  * @property-read Collection|HAFamily[] $HearingAids
  * @property-read Collection|HASPFamily[] $HearingAidSpareParts
- * @property-read Collection|HAAFamily $HearingAidAccessories
- * @property-read Collection|ALDFamily $AssistiveListeningDevices
- * @property-read Collection|CONFamily $Consumables
+ * @property-read Collection|HAAFamily[] $HearingAidAccessories
+ * @property-read Collection|ALDFamily[] $AssistiveListeningDevices
+ * @property-read Collection|CONFamily[] $Consumables
  * @property-read Collection|RRFamily[] $RICReceivers
- * @property-read Collection|FEFamily $FittingEquipment
- * @property-read Collection|GCFamily $GenericHearingAidCapabilities
+ * @property-read Collection|FEFamily[] $FittingEquipment
+ * @property-read Collection|GCFamily[] $GenericHearingAidCapabilities
  */
 class ProductGroups extends HIMSA_XML
 {
