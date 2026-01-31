@@ -2,6 +2,7 @@
 
 namespace HearConcept\HIMSA\XML\Families;
 
+use Carbon\Carbon;
 use HearConcept\HIMSA\XML\Collection;
 use HearConcept\HIMSA\XML\HAModel;
 use HearConcept\HIMSA\XML\HIMSA_XML;
