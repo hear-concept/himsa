@@ -7,6 +7,7 @@ use IteratorAggregate;
 use Traversable;
 use ArrayIterator;
 use Illuminate\Support\Collection as BaseCollection;
+use HearConcept\HIMSA\Enums\NS;
 
 class Collection extends BaseCollection
 {

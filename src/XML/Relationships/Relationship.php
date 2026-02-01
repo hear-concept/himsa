@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use HearConcept\HIMSA\XML\Collection;
 use HearConcept\HIMSA\XML\HIMSA_XML;
 use HearConcept\HIMSA\XML\Identification;
-use HearConcept\HIMSA\XML\NS;
+use HearConcept\HIMSA\Enums\NS;
 
 /**
  * @property-read Carbon $LastModifiedDate

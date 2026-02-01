@@ -2,7 +2,7 @@
 
 namespace HearConcept\HIMSA\XML\Families;
 
-use HearConcept\HIMSA\XML\AssistiveListeningDevice;
+use HearConcept\HIMSA\XML\Products\AssistiveListeningDevice;
 use HearConcept\HIMSA\XML\Collection;
 use HearConcept\HIMSA\XML\HIMSA_XML;
 use HearConcept\HIMSA\XML\LevelInformation;

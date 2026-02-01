@@ -4,6 +4,7 @@ namespace HearConcept\HIMSA\XML;
 
 use SimpleXMLElement;
 use HearConcept\HIMSA\XML\Families\{ALDFamily, CONFamily, FEFamily, GCFamily, HAAFamily, HAFamily, HASPFamily, RRFamily};
+use HearConcept\HIMSA\Enums\NS;
 
 /**
  * @property-read Collection|HAFamily[] $HearingAids

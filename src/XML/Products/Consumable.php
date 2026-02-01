@@ -1,15 +1,15 @@
 <?php
 
-namespace HearConcept\HIMSA\XML;
+namespace HearConcept\HIMSA\XML\Products;
 
-use Carbon\Carbon;
 use HearConcept\HIMSA\Enums\NS;
+use HearConcept\HIMSA\XML\LevelInformation;
 
 /**
  * @property-read string $Name
  * @property-read LevelInformation $LevelInformation
  */
-class HearingAidAccessory extends Accessory
+class Consumable extends Accessory
 {
     protected ?NS $namespace = NS::PI;
 

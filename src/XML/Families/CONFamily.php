@@ -2,9 +2,9 @@
 
 namespace HearConcept\HIMSA\XML\Families;
 
-use HearConcept\HIMSA\XML\Consumable;
+use HearConcept\HIMSA\XML\Products\Consumable;
 use HearConcept\HIMSA\XML\HIMSA_XML;
-use HearConcept\HIMSA\XML\NS;
+use HearConcept\HIMSA\Enums\NS;
 use HearConcept\HIMSA\XML\Collection;
 use HearConcept\HIMSA\XML\MergedCollection;
 use HearConcept\HIMSA\XML\LevelInformation;

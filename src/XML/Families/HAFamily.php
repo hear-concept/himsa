@@ -4,10 +4,10 @@ namespace HearConcept\HIMSA\XML\Families;
 
 use Carbon\Carbon;
 use HearConcept\HIMSA\XML\Collection;
-use HearConcept\HIMSA\XML\HearingAid;
+use HearConcept\HIMSA\XML\Products\HearingAid;
 use HearConcept\HIMSA\XML\HIMSA_XML;
 use HearConcept\HIMSA\XML\LevelInformation;
-use HearConcept\HIMSA\XML\NS;
+use HearConcept\HIMSA\Enums\NS;
 use SimpleXMLElement;
 
 /**
