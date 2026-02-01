@@ -2,16 +2,21 @@
 
 namespace HearConcept\HIMSA\XML;
 
+use Carbon\Carbon;
 use SimpleXMLElement;
 use HearConcept\HIMSA\Enums\NS;
 
 /**
  * @property-read string $CatalogId
  * @property-read string $CatalogCreationDateTime
- * @property-read string $RelationshipTableId
  * @property-read VersionInformation $VersionInformation
  * @property-read ScopeOfUse $ScopeOfUse
+ * @property-read Carbon|null $ValidFromDate
+ * @property-read Carbon|null $ValidToDate
  * @property-read Description $Description
+ * @property-read ContactInformation $ContactInformation
+ * @property-read string $RelationshipTableId
+ * @property-read string|null $DictionaryId
  * @property-read Brand[]|Collection $BrandCollection
  */
 class ProductCatalog extends HIMSA_XML
@@ -23,10 +28,14 @@ class ProductCatalog extends HIMSA_XML
     protected array $casts = [
         'CatalogId' => 'string',
         'CatalogCreationDate' => 'datetime',
-        'RelationshipTableId' => 'string',
         'VersionInformation' => VersionInformation::class,
         'ScopeOfUse' => ScopeOfUse::class,
+        'ValidFromDate' => 'datetime',
+        'ValidToDate' => 'datetime',
         'Description' => Description::class,
+        'ContactInformation' => ContactInformation::class,
+        'RelationshipTableId' => 'string',
+        'DictionaryId' => 'string',
         'BrandCollection' => [Collection::class, 'Brand', Brand::class],
     ];
 

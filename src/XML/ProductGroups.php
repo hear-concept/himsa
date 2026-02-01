@@ -7,14 +7,17 @@ use HearConcept\HIMSA\XML\Families\{ALDFamily, CONFamily, FEFamily, GCFamily, HA
 use HearConcept\HIMSA\Enums\NS;
 
 /**
- * @property-read Collection|HAFamily[] $HearingAids
- * @property-read Collection|HASPFamily[] $HearingAidSpareParts
- * @property-read Collection|HAAFamily[] $HearingAidAccessories
- * @property-read Collection|ALDFamily[] $AssistiveListeningDevices
- * @property-read Collection|CONFamily[] $Consumables
- * @property-read Collection|RRFamily[] $RICReceivers
- * @property-read Collection|FEFamily[] $FittingEquipment
+ * @property-read Collection|HAFamily[] $HearingAids Hearing aids included in this product catalog. Returns a collection of families.
+ * @property-read Collection|HASPFamily[] $HearingAidSpareParts Hearing aid spare parts included in this product catalog. Returns a collection of families.
+ * @property-read Collection|HAAFamily[] $HearingAidAccessories Hearing aid accessories included in this product catalog. Returns a collection of families.
+ * @property-read Collection|ALDFamily[] $AssistiveListeningDevices Assistive listening devices included in this product catalog. Returns a collection of families.
+ * @property-read Collection|CONFamily[] $Consumables Consumables included in this product catalog. Returns a collection of families.
+ * @property-read Collection|SimpleXMLElement $MarketingAndProductRelatedInformation Marketing and product related information included in this product catalog.Returns a collection of families.
+ * @property-read Collection|SimpleXMLElement $EarImpressionSupplies Ear impression supplies included in this product catalog. Returns a collection of families.
+ * @property-read Collection|RRFamily[] $RICReceivers Dispenser-replacable output transducers for Receiver-In-Canal hearing aids. Returns a collection of families.
+ * @property-read Collection|FEFamily[] $FittingEquipment Fitting Equipment included in this product catalog. Returns a collection of families.
  * @property-read Collection|GCFamily[] $GenericHearingAidCapabilities
+ * @property-read Collection|SimpleXMLElement $CustomShell
  */
 class ProductGroups extends HIMSA_XML
 {
@@ -25,7 +28,10 @@ class ProductGroups extends HIMSA_XML
         'HearingAidAccessories' => [Collection::class, 'Family', HAAFamily::class, NS::HAA],
         'AssistiveListeningDevices' => [Collection::class, 'Family', ALDFamily::class, NS::ALD],
         'Consumables' => [Collection::class, 'Family', CONFamily::class, NS::CON],
+        'MarketingAndProductRelatedInformation' => [Collection::class, 'Family', null, NS::INFO],
+        'EarImpressionSupplies' => [Collection::class, 'Family', null, NS::SUP],
         'FittingEquipment' => [Collection::class, 'Family', FEFamily::class, NS::FE],
         'GenericHearingAidCapabilities' => [Collection::class, 'Family', GCFamily::class, NS::GC],
+        'CustomShell' => [Collection::class, 'Family', null, NS::CSM],
     ];
 }

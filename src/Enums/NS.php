@@ -16,4 +16,5 @@ enum NS: string
     case SUP = 'http://www.himsa.com/ProductInformation/Supply';
     case GC = 'http://www.himsa.com/ProductInformation/GenericCapability';
     case REL = 'http://www.himsa.com/ProductInformation/Relationships';
+    case CSM = 'http://www.himsa.com/ProductInformation/CustomShell';
 }

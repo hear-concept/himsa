@@ -3,6 +3,7 @@
 namespace HearConcept\HIMSA\XML;
 
 use HearConcept\HIMSA\Enums\NS;
+use function filter_var;
 
 /**
  * @property-read string $ManufacturerItemId
@@ -18,4 +19,9 @@ class Identification extends HIMSA_XML
         'ThirdPartyReferenceCollection' => [Collection::class, 'ThirdPartyReference', ThirdPartyReference::class],
         'GlobalTradeItemNumberCollection' => [Collection::class, 'GlobalTradeItemNumber', GlobalTradeItemNumber::class],
     ];
+
+    public function isPartNumber(): ?bool
+    {
+        return filter_var((string) $this->xml->attributes()['IsPartNumber'], FILTER_VALIDATE_BOOLEAN);
+    }
 }

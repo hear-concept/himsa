@@ -26,7 +26,7 @@ abstract class HIMSA_XML
      */
     protected array $namespaces = [];
 
-    public function __construct(SimpleXMLElement $xml)
+    public function __construct(SimpleXMLElement $xml, protected array $injectedAttributes = [])
     {
         if (!empty($this->namespaces))
         {

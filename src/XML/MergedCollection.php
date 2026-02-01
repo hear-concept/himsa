@@ -2,11 +2,9 @@
 
 namespace HearConcept\HIMSA\XML;
 
-use Illuminate\Support\Collection as BaseCollection;
 use SimpleXMLElement;
-use HearConcept\HIMSA\XML\Collection;
 
-class MergedCollection extends BaseCollection
+class MergedCollection extends Collection
 {
     public function __construct(
         protected SimpleXMLElement $xml,
@@ -15,7 +13,7 @@ class MergedCollection extends BaseCollection
     {
         foreach ($mapping as $name => $class)
         {
-            $items[] = new \HearConcept\HIMSA\XML\Collection($xml, $name, $class);
+            $items[] = new Collection($xml, $name, $class);
         }
 
         $this->items = collect($items)->reduce(

@@ -8,7 +8,6 @@ use HearConcept\HIMSA\XML\LevelInformation;
 
 /**
  * @property-read string $Name
- * @property-read LevelInformation $LevelInformation
  */
 class HearingAidAccessory extends Accessory
 {

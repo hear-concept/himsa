@@ -11,8 +11,7 @@ use HearConcept\HIMSA\Enums\NS;
 use SimpleXMLElement;
 
 /**
- * @property-read Collection|HearingAid[] $ModelCollection
- * @property-read LevelInformation $LevelInformation
+ * @property-read Collection|HearingAid[] $ModelCollection Collection of hearing aid models
  * @property-read string $Name
  */
 class HAFamily extends Family

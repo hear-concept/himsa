@@ -5,12 +5,8 @@ namespace HearConcept\HIMSA\XML\Products;
 use Carbon\Carbon;
 use HearConcept\HIMSA\Enums\NS;
 use HearConcept\HIMSA\XML\LevelInformation;
+use HearConcept\HIMSA\XML\Collection;
 
-/**
- * @property-read string $Name
- * @property-read LevelInformation $LevelInformation
- * @property-read Collection|Color[] $ColorCollection
- */
 class HearingAidSparePart extends Accessory
 {
     protected ?NS $namespace = NS::PI;
