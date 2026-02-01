@@ -2,11 +2,13 @@
 
 namespace HearConcept\HIMSA\XML;
 
+use HearConcept\HIMSA\Enums\NS;
+
 /**
  * @property-read string $Name
  * @property-read LevelInformation $LevelInformation
  */
-class Consumable extends HIMSA_XML
+class Consumable extends Accessory
 {
     protected ?NS $namespace = NS::PI;
 

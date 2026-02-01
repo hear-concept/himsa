@@ -2,7 +2,12 @@
 
 namespace HearConcept\HIMSA\XML\Styles;
 
-class StyleCustom extends HIMSA_XML
-{
+use HearConcept\HIMSA\Enums\StyleType;
 
+class StyleCustom extends Style
+{
+    public function type(): StyleType
+    {
+        return StyleType::CUSTOM;
+    }
 }

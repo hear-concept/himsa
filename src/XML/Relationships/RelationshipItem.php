@@ -2,6 +2,7 @@
 
 namespace HearConcept\HIMSA\XML\Relationships;
 
+use HearConcept\HIMSA\Enums\LevelIndicator;
 use HearConcept\HIMSA\XML\HIMSA_XML;
 
 /**
@@ -14,6 +15,6 @@ class RelationshipItem extends HIMSA_XML
     protected array $casts = [
         'ManufacturerItemId' => 'string',
         'ProductGroupIndicator' => 'string',
-        'LevelIndicator' => 'string',
+        'LevelIndicator' => LevelIndicator::class,
     ];
 }

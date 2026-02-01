@@ -2,6 +2,8 @@
 
 namespace HearConcept\HIMSA\XML;
 
+use HearConcept\HIMSA\Enums\NS;
+
 /**
  * @property-read string $ApproximateColorCode
  * @property-read string|null $ManufacturerDefinedColorCode

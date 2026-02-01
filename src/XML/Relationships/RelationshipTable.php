@@ -4,8 +4,8 @@ namespace HearConcept\HIMSA\XML\Relationships;
 
 use HearConcept\HIMSA\XML\Collection;
 use HearConcept\HIMSA\XML\HIMSA_XML;
-use HearConcept\HIMSA\XML\NS;
 use SimpleXMLElement;
+use HearConcept\HIMSA\Enums\NS;
 
 /**
  * @property-read string $RelationshipTableId

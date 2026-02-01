@@ -1,6 +1,6 @@
 <?php
 
-namespace HearConcept\HIMSA\XML;
+namespace HearConcept\HIMSA\Enums;
 
 enum NS: string
 {

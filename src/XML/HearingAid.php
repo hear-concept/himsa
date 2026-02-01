@@ -9,7 +9,7 @@ use HearConcept\HIMSA\XML\Styles\{Style, StyleBTE, StyleCustom, StyleOther, Styl
  * @property-read LevelInformation $LevelInformation
  * @property-read MergedCollection|Style[] $StyleCollection
  */
-class HAModel extends HIMSA_XML
+class HearingAid extends HIMSA_XML
 {
     protected array $casts = [
         'Name' => 'string',

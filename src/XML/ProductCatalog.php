@@ -3,6 +3,7 @@
 namespace HearConcept\HIMSA\XML;
 
 use SimpleXMLElement;
+use HearConcept\HIMSA\Enums\NS;
 
 /**
  * @property-read string $CatalogId

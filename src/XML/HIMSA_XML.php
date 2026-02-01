@@ -5,6 +5,7 @@ namespace HearConcept\HIMSA\XML;
 use Exception;
 use Illuminate\Support\Carbon;
 use SimpleXMLElement;
+use HearConcept\HIMSA\Enums\NS;
 use function doubleval;
 use function is_array;
 use function str_contains;
@@ -60,6 +61,10 @@ abstract class HIMSA_XML
         }
 
         $str = (string) $value;
+
+        // Enum cast
+        if (enum_exists($castTo))
+            return $castTo::tryFrom($str);
 
         return match ($castTo)
         {
