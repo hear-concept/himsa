@@ -10,5 +10,8 @@ use HearConcept\HIMSA\XML\Color;
  */
 abstract class Accessory extends Product
 {
-
+    public function type(): string
+    {
+        return $this->attributes['xml_tag'];
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace HearConcept\HIMSA\XML\Styles;
 
+use HearConcept\HIMSA\Contracts\HasLevelInformation;
 use HearConcept\HIMSA\Enums\BatterySize;
 use HearConcept\HIMSA\Enums\StyleType;
 use HearConcept\HIMSA\Traits\HasLastModifiedDate;
@@ -9,6 +10,7 @@ use HearConcept\HIMSA\XML\Color;
 use HearConcept\HIMSA\XML\HIMSA_XML;
 use HearConcept\HIMSA\XML\Collection;
 use HearConcept\HIMSA\XML\ElectricalAcoustic;
+use HearConcept\HIMSA\XML\LevelInformation;
 
 /**
  * @property-read string $SubStyleName
@@ -19,7 +21,7 @@ use HearConcept\HIMSA\XML\ElectricalAcoustic;
  * @property-read Collection|ElectricalAcoustic[] $ElectricalAcousticCollection
  * @property-read Collection|Color[] $ColorCollection
  */
-abstract class Style extends HIMSA_XML
+abstract class Style extends HIMSA_XML implements HasLevelInformation
 {
     use HasLastModifiedDate;
 
@@ -31,6 +33,7 @@ abstract class Style extends HIMSA_XML
         'BuildForBatterySizeCollection' => [Collection::class, 'BatterySize', BatterySize::class],
         'ElectricalAcousticCollection' => [Collection::class, 'ElectricalAcoustic', ElectricalAcoustic::class],
         'ColorCollection' => [Collection::class, 'Color', Color::class],
+        'LevelInformation' => LevelInformation::class,
     ];
 
     abstract public function type(): StyleType;

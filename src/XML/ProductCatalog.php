@@ -21,7 +21,7 @@ use HearConcept\HIMSA\Enums\NS;
  */
 class ProductCatalog extends HIMSA_XML
 {
-    public readonly string $version;
+    public readonly string $Version;
 
     protected ?NS $namespace = NS::PI;
 
@@ -41,7 +41,7 @@ class ProductCatalog extends HIMSA_XML
 
     public function __construct(SimpleXMLElement $xml)
     {
-        $this->version = (string) $xml['version'];
+        $this->Version = (string) $xml['version'];
         parent::__construct($xml);
     }
 }

@@ -8,11 +8,23 @@ use function version_compare;
 
 class HIMSA
 {
+    /**
+     * Read a catalog file
+     *
+     * @param string $file
+     * @return ProductCatalog
+     */
     public static function catalog(string $file): ProductCatalog
     {
         return new ProductCatalog(simplexml_load_file($file));
     }
 
+    /**
+     * Read a relationship table file
+     *
+     * @param string $file
+     * @return RelationshipTable
+     */
     public static function relationshipTable(string $file): RelationshipTable
     {
         return new RelationshipTable(simplexml_load_file($file));

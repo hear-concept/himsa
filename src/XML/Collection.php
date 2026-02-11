@@ -35,7 +35,7 @@ class Collection extends BaseCollection
             elseif (enum_exists($class))
                 $this->items[] = $class::tryFrom($item);
             else
-                $this->items[] = new $class($item);
+                $this->items[] = new $class($item, ['xml_tag' => $key]);
         }
     }
 }
