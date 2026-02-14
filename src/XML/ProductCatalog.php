@@ -16,9 +16,9 @@ use HearConcept\HIMSA\Enums\NS;
  * @property-read ScopeOfUse $ScopeOfUse
  * @property-read Carbon|null $ValidFromDate
  * @property-read Carbon|null $ValidToDate
- * @property-read Description $Description
- * @property-read ContactInformation $ContactInformation
- * @property-read string $RelationshipTableId
+ * @property-read Description|null $Description
+ * @property-read ContactInformation|null $ContactInformation
+ * @property-read string|null $RelationshipTableId
  * @property-read string|null $DictionaryId
  * @property-read Brand[]|Collection $BrandCollection
  */
@@ -48,13 +48,5 @@ class ProductCatalog extends HIMSA_XML
     {
         $this->Version = (string) $xml['version'];
         parent::__construct($xml);
-    }
-
-    public function setRelationshipTable(RelationshipTable $table): void
-    {
-        if ($table->RelationshipTableId != $this->RelationshipTableId)
-            throw new HIMSAException("Catalog Relationship Table ID $this->RelationshipTableId does not match $table->RelationshipTableId");
-
-        $this->relationshipTable = $table;
     }
 }

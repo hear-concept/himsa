@@ -6,6 +6,7 @@ use HearConcept\HIMSA\Enums\NS;
 
 /**
  * @property-read string $Name
+ * @property-read Text|null $Description
  */
 class Condition extends HIMSA_XML
 {

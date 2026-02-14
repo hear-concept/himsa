@@ -4,6 +4,7 @@ namespace HearConcept\HIMSA\XML;
 
 use Exception;
 use HearConcept\HIMSA\XML\Relationships\RelationshipTable;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Carbon;
 use SimpleXMLElement;
 use HearConcept\HIMSA\Enums\NS;
@@ -49,8 +50,11 @@ abstract class HIMSA_XML
             $this->xml = $xml;
     }
 
-    protected function cast(string $key, SimpleXMLElement $value): mixed
+    protected function cast(string $key, ?SimpleXMLElement $value = null): mixed
     {
+        if (!$value)
+            return null;
+
         $castTo = $this->casts()[$key] ?? null;
 
         // Casting to a collection
@@ -72,10 +76,10 @@ abstract class HIMSA_XML
             'string' => $str == '' ? null : $str,
             'int', 'number', 'integer' => $str == '' ? null : intval($str),
             'datetime', 'date', 'time' => $str == '' ? null : Carbon::create($str),
-            'bool', 'boolean' => !($str === 'false'),
+            'bool', 'boolean' => $str ? ($str == 'true' ? true : false) : null,
             'double', 'float', 'decimal' => $str == '' ? null : doubleval($str),
             SimpleXMLElement::class => $value,
-            default => new $castTo($value),
+            default =>  new $castTo($value),
         };
     }
 

@@ -8,11 +8,15 @@ use HearConcept\HIMSA\XML\MergedCollection;
 
 /**
  * @property-read MergedCollection|Style[] $StyleCollection
+ * @property-read string|null $Version
+ * @property-read string|null $TierLevelName
  */
 class HearingAid extends Product
 {
     protected array $casts = [
         'Name' => 'string',
+        'Version' => 'string',
+        'TierLevelName' => 'string',
         'LevelInformation' => LevelInformation::class,
         'StyleCollection' => [MergedCollection::class, [
             'StyleBTE' => StyleBTE::class,

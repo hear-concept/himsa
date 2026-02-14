@@ -6,7 +6,7 @@ namespace HearConcept\HIMSA\XML;
  * @property-read double|null $BatteryConsumption
  * @property-read double|null $MaxGain
  * @property-read double|null $MaxOutput
- * @property-read Collection|Condition[] $ConditionCollection
+ * @property-read Collection|Condition[]|null $ConditionCollection
  */
 class ElectricalAcousticsMeasuresType extends HIMSA_XML
 {

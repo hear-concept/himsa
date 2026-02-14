@@ -6,9 +6,9 @@ use HearConcept\HIMSA\Enums\NS;
 use function filter_var;
 
 /**
- * @property-read string $ManufacturerItemId
- * @property-read Collection|ThirdPartyReference[] $ThirdPartyReferenceCollection
- * @property-read Collection|GlobalTradeItemNumber[] $GLobalTradeItemNumberCollection
+ * @property-read string|null $ManufacturerItemId
+ * @property-read Collection|ThirdPartyReference[]|null $ThirdPartyReferenceCollection
+ * @property-read Collection|GlobalTradeItemNumber[]|null $GLobalTradeItemNumberCollection
  */
 class Identification extends HIMSA_XML
 {

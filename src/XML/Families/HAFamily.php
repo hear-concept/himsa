@@ -14,9 +14,9 @@ use SimpleXMLElement;
 
 /**
  * @property-read Collection|HearingAid[] $ModelCollection Collection of hearing aid models
- * @property-read string $Name
- * @property-read TierDescription $TierDescription
- * @property-read PowerMarketingDescription $PowerMarketingDescription
+ * @property-read string $Name Marketing name of hearing aid family
+ * @property-read TierDescription|null $TierDescription
+ * @property-read PowerMarketingDescription|null $PowerMarketingDescription
  */
 class HAFamily extends Family
 {

@@ -4,6 +4,7 @@ namespace HearConcept\HIMSA\XML\Styles;
 
 use HearConcept\HIMSA\Contracts\HasLevelInformation;
 use HearConcept\HIMSA\Enums\BatterySize;
+use HearConcept\HIMSA\Enums\Side;
 use HearConcept\HIMSA\Enums\StyleType;
 use HearConcept\HIMSA\Traits\HasLastModifiedDate;
 use HearConcept\HIMSA\XML\Color;
@@ -17,9 +18,10 @@ use HearConcept\HIMSA\XML\LevelInformation;
  * @property-read string|null $DeviceName
  * @property-read string|null $AliasName
  * @property-read string|null $PowerMarketingEntryName
+ * @property-read Side|null $Side The ear side the device is used in
  * @property-read Collection|BatterySize[] $BuildForBatterySizeCollection
- * @property-read Collection|ElectricalAcoustic[] $ElectricalAcousticCollection
- * @property-read Collection|Color[] $ColorCollection
+ * @property-read Collection|ElectricalAcoustic[]|null $ElectricalAcousticCollection
+ * @property-read Collection|Color[]|null $ColorCollection
  */
 abstract class Style extends HIMSA_XML implements HasLevelInformation
 {
@@ -30,6 +32,7 @@ abstract class Style extends HIMSA_XML implements HasLevelInformation
         'DeviceName' => 'string',
         'AliasName' => 'string',
         'PowerMarketingEntryName' => 'string',
+        'Side' => Side::class,
         'BuildForBatterySizeCollection' => [Collection::class, 'BatterySize', BatterySize::class],
         'ElectricalAcousticCollection' => [Collection::class, 'ElectricalAcoustic', ElectricalAcoustic::class],
         'ColorCollection' => [Collection::class, 'Color', Color::class],

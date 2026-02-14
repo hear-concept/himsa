@@ -3,8 +3,8 @@
 namespace HearConcept\HIMSA\XML;
 
 /**
- * @property-read ElectricalAcousticsMeasuresType $TwoCC
- * @property-read ElectricalAcousticsMeasuresType $EarSimulator
+ * @property-read ElectricalAcousticsMeasuresType|null $TwoCC
+ * @property-read ElectricalAcousticsMeasuresType|null $EarSimulator
  */
 class ElectricalAcoustic extends HIMSA_XML
 {

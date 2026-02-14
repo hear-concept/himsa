@@ -8,18 +8,18 @@ use HearConcept\HIMSA\Enums\NS;
 use HearConcept\HIMSA\Traits\HasLastModifiedDate;
 
 /**
- * @property-read ColorDefinition $MainColor
- * @property-read ColorDefinition $SecondaryColor
- * @property-read ShellColor $ShellColor
+ * @property-read ColorSelection $MainColor
+ * @property-read ColorSelection|null $SecondaryColor
+ * @property-read ColorSelection $ShellColor
  */
 class Color extends HIMSA_XML implements HasLevelInformation
 {
     use HasLastModifiedDate;
 
     protected array $casts = [
-        'MainColor' => ColorDefinition::class,
-        'SecondaryColor' => ColorDefinition::class,
-        'ShellColor' => ColorDefinition::class,
+        'MainColor' => ColorSelection::class,
+        'SecondaryColor' => ColorSelection::class,
+        'ShellColor' => ColorSelection::class,
         'LevelInformation' => LevelInformation::class,
     ];
 }

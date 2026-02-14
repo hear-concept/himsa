@@ -5,12 +5,14 @@ namespace HearConcept\HIMSA\XML;
 use HearConcept\HIMSA\Enums\NS;
 
 /**
- * @property-read Identification $Identification
- * @property-read Dates $Dates
- * @property-read ProductDescription $ProductDescription
- * @property-read string|null $ManufacturerItemDescription
- * @property-read bool $Serialized
- * @property-read bool $Consignment
+ * @property-read Identification|null $Identification
+ * @property-read Dates|null $Dates
+ * @property-read ProductDescription|null $ProductDescription
+ * @property-read Text|null $ManufacturerItemDescription
+ * @property-read bool|null $Serialized
+ * @property-read bool|null $Consignment
+ * @property-read bool|null $NotMeantForSale
+ * @property-read OrderDetails|null $OrderDetails
  */
 class LevelInformation extends HIMSA_XML
 {
@@ -20,8 +22,10 @@ class LevelInformation extends HIMSA_XML
         'Identification' => Identification::class,
         'Dates' => Dates::class,
         'ProductDescription' => ProductDescription::class,
-        'ManufacturerItemDescription' => 'string',
+        'ManufacturerItemDescription' => Text::class,
         'Serialized' => 'boolean',
         'Consignment' => 'boolean',
+        'NotMeantForSale' => 'boolean',
+        'OrderDetails' => OrderDetails::class,
     ];
 }

@@ -6,13 +6,14 @@ use HearConcept\HIMSA\Enums\ApproximateColorCode;
 use HearConcept\HIMSA\Enums\NS;
 
 /**
- * @property-read ApproximateColorCode $ApproximateColorCode
+ * @property-read ApproximateColorCode|null $ApproximateColorCode
  * @property-read string|null $ManufacturerDefinedColorCode
  * @property-read string|null $ManufacturerDefinedColorName
  * @property-read string|null $ColorSwatchLink
+ * @property-read Text|null $ColorUsageDescription
  * @property-read Collection|string[] $ImageLinkCollection
  */
-class ColorDefinition extends HIMSA_XML
+class ColorSelection extends HIMSA_XML
 {
     protected ?NS $namespace = NS::PI;
 
@@ -21,6 +22,7 @@ class ColorDefinition extends HIMSA_XML
         'ManufacturerDefinedColorCode' => 'string',
         'ManufacturerDefinedColorName' => 'string',
         'ColorSwatchLink' => 'string',
-        'ImageLinkCollection' => [Collection::class, 'ImageLink', 'string']
+        'ImageLinkCollection' => [Collection::class, 'ImageLink', 'string'],
+        'ColorUsageDescription' => Text::class,
     ];
 }
