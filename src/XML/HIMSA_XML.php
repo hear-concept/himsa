@@ -3,6 +3,7 @@
 namespace HearConcept\HIMSA\XML;
 
 use Exception;
+use HearConcept\HIMSA\XML\Relationships\RelationshipTable;
 use Illuminate\Support\Carbon;
 use SimpleXMLElement;
 use HearConcept\HIMSA\Enums\NS;
@@ -71,7 +72,7 @@ abstract class HIMSA_XML
             'string' => $str == '' ? null : $str,
             'int', 'number', 'integer' => $str == '' ? null : intval($str),
             'datetime', 'date', 'time' => $str == '' ? null : Carbon::create($str),
-            'bool', 'boolean' => $str === 'false' ? false : true,
+            'bool', 'boolean' => !($str === 'false'),
             'double', 'float', 'decimal' => $str == '' ? null : doubleval($str),
             SimpleXMLElement::class => $value,
             default => new $castTo($value),
@@ -86,7 +87,9 @@ abstract class HIMSA_XML
     public function __get(string $name)
     {
         if (is_array($this->xml))
-            $value = $this->xml[$name];
+        {
+            $value = $this->xml[$name]->$name;
+        }
         else
             $value = $this->xml->$name;
 

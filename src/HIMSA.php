@@ -14,9 +14,9 @@ class HIMSA
      * @param string $file
      * @return ProductCatalog
      */
-    public static function catalog(string $file): ProductCatalog
+    public static function catalog(string $file, ?string $relationshipFile = null): ProductCatalog
     {
-        return new ProductCatalog(simplexml_load_file($file));
+        return new ProductCatalog(simplexml_load_file($file), $relationshipFile);
     }
 
     /**

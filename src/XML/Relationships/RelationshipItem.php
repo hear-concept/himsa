@@ -8,7 +8,7 @@ use HearConcept\HIMSA\XML\HIMSA_XML;
 /**
  * @property-read string $ManufacturerItemId
  * @property-read string $ProductGroupIndicator
- * @property-read string $LevelIndicator
+ * @property-read LevelIndicator $LevelIndicator
  */
 class RelationshipItem extends HIMSA_XML
 {

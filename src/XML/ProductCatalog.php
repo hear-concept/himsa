@@ -3,6 +3,9 @@
 namespace HearConcept\HIMSA\XML;
 
 use Carbon\Carbon;
+use HearConcept\HIMSA\Exceptions\HIMSAException;
+use HearConcept\HIMSA\HIMSA;
+use HearConcept\HIMSA\XML\Relationships\RelationshipTable;
 use SimpleXMLElement;
 use HearConcept\HIMSA\Enums\NS;
 
@@ -39,9 +42,19 @@ class ProductCatalog extends HIMSA_XML
         'BrandCollection' => [Collection::class, 'Brand', Brand::class],
     ];
 
+    protected ?RelationshipTable $relationshipTable = null;
+
     public function __construct(SimpleXMLElement $xml)
     {
         $this->Version = (string) $xml['version'];
         parent::__construct($xml);
+    }
+
+    public function setRelationshipTable(RelationshipTable $table): void
+    {
+        if ($table->RelationshipTableId != $this->RelationshipTableId)
+            throw new HIMSAException("Catalog Relationship Table ID $this->RelationshipTableId does not match $table->RelationshipTableId");
+
+        $this->relationshipTable = $table;
     }
 }
