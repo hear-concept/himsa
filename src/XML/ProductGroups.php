@@ -7,16 +7,16 @@ use HearConcept\HIMSA\XML\Families\{ALDFamily, CONFamily, FEFamily, GCFamily, HA
 use HearConcept\HIMSA\Enums\NS;
 
 /**
- * @property-read Collection|HAFamily[] $HearingAids Hearing aids included in this product catalog. Returns a collection of families.
- * @property-read Collection|HASPFamily[] $HearingAidSpareParts Hearing aid spare parts included in this product catalog. Returns a collection of families.
- * @property-read Collection|HAAFamily[] $HearingAidAccessories Hearing aid accessories included in this product catalog. Returns a collection of families.
- * @property-read Collection|ALDFamily[] $AssistiveListeningDevices Assistive listening devices included in this product catalog. Returns a collection of families.
- * @property-read Collection|CONFamily[] $Consumables Consumables included in this product catalog. Returns a collection of families.
+ * @property-read Collection|HAFamily[]|null $HearingAids Hearing aids included in this product catalog. Returns a collection of families.
+ * @property-read Collection|HASPFamily[]|null $HearingAidSpareParts Hearing aid spare parts included in this product catalog. Returns a collection of families.
+ * @property-read Collection|HAAFamily[]|null $HearingAidAccessories Hearing aid accessories included in this product catalog. Returns a collection of families.
+ * @property-read Collection|ALDFamily[]|null $AssistiveListeningDevices Assistive listening devices included in this product catalog. Returns a collection of families.
+ * @property-read Collection|CONFamily[]|null $Consumables Consumables included in this product catalog. Returns a collection of families.
  * @property-read Collection|SimpleXMLElement $MarketingAndProductRelatedInformation Marketing and product related information included in this product catalog.Returns a collection of families.
  * @property-read Collection|SimpleXMLElement $EarImpressionSupplies Ear impression supplies included in this product catalog. Returns a collection of families.
- * @property-read Collection|RRFamily[] $RICReceivers Dispenser-replacable output transducers for Receiver-In-Canal hearing aids. Returns a collection of families.
- * @property-read Collection|FEFamily[] $FittingEquipment Fitting Equipment included in this product catalog. Returns a collection of families.
- * @property-read Collection|GCFamily[] $GenericHearingAidCapabilities
+ * @property-read Collection|RRFamily[]|null $RICReceivers Dispenser-replacable output transducers for Receiver-In-Canal hearing aids. Returns a collection of families.
+ * @property-read Collection|FEFamily[]|null $FittingEquipment Fitting Equipment included in this product catalog. Returns a collection of families.
+ * @property-read Collection|GCFamily[]|null $GenericHearingAidCapabilities
  * @property-read Collection|SimpleXMLElement $CustomShell
  */
 class ProductGroups extends HIMSA_XML
