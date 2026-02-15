@@ -18,7 +18,6 @@
     "require": {
         "php": ">=8.4",
         "illuminate/support": "^v12.0.0",
-        "nesbot/carbon": "^3.0.0",
-        "symfony/var-dumper": "^8.0"
+        "nesbot/carbon": "^3.0.0"
     }
 }
