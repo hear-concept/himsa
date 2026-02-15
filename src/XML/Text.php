@@ -9,8 +9,11 @@ class Text extends HIMSA_XML
      *
      * @return string
      */
-    public function content(): string
+    public function content(): ?string
     {
+        if (!$this->xml->PlainText && !$this->xml->HTMLText)
+            return null;
+
         return ((string) $this->xml->PlainText) ?? $this->xml->HTMLText->asXML();
     }
 

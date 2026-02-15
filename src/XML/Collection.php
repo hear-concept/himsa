@@ -13,8 +13,14 @@ use function method_exists;
 
 class Collection extends BaseCollection
 {
-    public function __construct(protected SimpleXMLElement $xml, string $key, ?string $class = null, ?NS $namespace = null)
+    public function __construct(protected SimpleXMLElement|array $xml, ?string $key = null, ?string $class = null, ?NS $namespace = null)
     {
+        if (is_array($xml))
+        {
+            parent::__construct($xml);
+            return;
+        }
+
         if (!$xml)
             return;
 

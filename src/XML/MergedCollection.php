@@ -7,10 +7,16 @@ use SimpleXMLElement;
 class MergedCollection extends Collection
 {
     public function __construct(
-        protected SimpleXMLElement $xml,
+        protected SimpleXMLElement|array $xml,
         array $mapping,
     )
     {
+        if (is_array($xml))
+        {
+            parent::__construct($xml);
+            return;
+        }
+
         foreach ($mapping as $name => $class)
         {
             $items[] = new Collection($xml, $name, $class);
