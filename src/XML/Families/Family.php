@@ -8,6 +8,9 @@ use HearConcept\HIMSA\XML\HIMSA_XML;
 use HearConcept\HIMSA\XML\LevelInformation;
 use SimpleXMLElement;
 
+/**
+ * @property-read string $Name
+ */
 abstract class Family extends HIMSA_XML implements HAsLevelInformation
 {
     use HasLastModifiedDate;
