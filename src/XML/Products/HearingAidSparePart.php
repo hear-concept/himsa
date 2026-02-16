@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use HearConcept\HIMSA\Enums\NS;
 use HearConcept\HIMSA\XML\LevelInformation;
 use HearConcept\HIMSA\XML\Collection;
+use HearConcept\HIMSA\XML\Color;
 
 class HearingAidSparePart extends Accessory
 {

@@ -10,7 +10,6 @@ use HearConcept\HIMSA\Traits\HasLastModifiedDate;
 /**
  * @property-read ColorSelection $MainColor
  * @property-read ColorSelection|null $SecondaryColor
- * @property-read ColorSelection $ShellColor
  */
 class Color extends HIMSA_XML implements HasLevelInformation
 {
@@ -19,7 +18,6 @@ class Color extends HIMSA_XML implements HasLevelInformation
     protected array $casts = [
         'MainColor' => ColorSelection::class,
         'SecondaryColor' => ColorSelection::class,
-        'ShellColor' => ColorSelection::class,
         'LevelInformation' => LevelInformation::class,
     ];
 }

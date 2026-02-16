@@ -8,6 +8,7 @@ use HearConcept\HIMSA\Enums\Side;
 use HearConcept\HIMSA\Enums\StyleType;
 use HearConcept\HIMSA\Traits\HasLastModifiedDate;
 use HearConcept\HIMSA\XML\Color;
+use HearConcept\HIMSA\XML\ColorStyleCustom;
 use HearConcept\HIMSA\XML\HIMSA_XML;
 use HearConcept\HIMSA\XML\Collection;
 use HearConcept\HIMSA\XML\ElectricalAcoustic;
@@ -21,7 +22,7 @@ use HearConcept\HIMSA\XML\LevelInformation;
  * @property-read Side|null $Side The ear side the device is used in
  * @property-read Collection|BatterySize[] $BuildForBatterySizeCollection
  * @property-read Collection|ElectricalAcoustic[]|null $ElectricalAcousticCollection
- * @property-read Collection|Color[]|null $ColorCollection
+ * @property-read Collection|Color[]|ColorStyleCustom[]|null $ColorCollection
  */
 abstract class Style extends HIMSA_XML implements HasLevelInformation
 {

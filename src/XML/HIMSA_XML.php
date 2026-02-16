@@ -99,4 +99,14 @@ abstract class HIMSA_XML
 
         return $this->cast($name, $value);
     }
+
+    /**
+     * Get the xml key of the current item
+     *
+     * @return string|null
+     */
+    public function key(): ?string
+    {
+        return $this->attributes['xml_tag'] ?? null;
+    }
 }
