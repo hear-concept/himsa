@@ -71,16 +71,26 @@ abstract class HIMSA_XML
         if (enum_exists($castTo))
             return $castTo::tryFrom($str);
 
-        return match ($castTo)
+        $returnValue = match ($castTo)
         {
             'string' => $str == '' ? null : $str,
             'int', 'number', 'integer' => $str == '' ? null : intval($str),
-            'datetime', 'date', 'time' => $str == '' ? null : Carbon::create($str),
+            'datetime', 'date', 'time' => $str == '' ? null : Carbon::make($str),
             'bool', 'boolean' => $str ? ($str == 'true' ? true : false) : null,
             'double', 'float', 'decimal' => $str == '' ? null : doubleval($str),
             SimpleXMLElement::class => $value,
-            default =>  new $castTo($value),
+            default => function () use ($castTo, $value) {
+                if (class_exists($castTo))
+                    return new $castTo($value);
+
+                return null;
+            },
         };
+
+        if (is_callable($returnValue))
+            return $returnValue();
+
+        return $returnValue;
     }
 
     protected function casts(): array

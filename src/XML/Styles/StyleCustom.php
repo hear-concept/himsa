@@ -3,6 +3,10 @@
 namespace HearConcept\HIMSA\XML\Styles;
 
 use HearConcept\HIMSA\Enums\StyleType;
+use HearConcept\HIMSA\XML\Collection;
+use HearConcept\HIMSA\Enums\BatterySize;
+use HearConcept\HIMSA\XML\Color;
+use HearConcept\HIMSA\Enums\Side;
 
 class StyleCustom extends Style
 {
