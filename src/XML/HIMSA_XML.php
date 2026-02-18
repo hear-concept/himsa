@@ -53,9 +53,6 @@ abstract class HIMSA_XML
 
     protected function cast(string $key, ?SimpleXMLElement $value = null): mixed
     {
-        if (!$value)
-            return null;
-
         $castTo = $this->casts()[$key] ?? null;
 
         // Casting to a collection
@@ -65,6 +62,9 @@ abstract class HIMSA_XML
 
             return new $class($value, ...$castTo);
         }
+
+        if (!$value)
+            return null;
 
         $str = (string) $value;
 

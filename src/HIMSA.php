@@ -2,8 +2,14 @@
 
 namespace HearConcept\HIMSA;
 
+use HearConcept\HIMSA\Validation\HIMSAValidator;
 use HearConcept\HIMSA\XML\ProductCatalog;
 use HearConcept\HIMSA\XML\Relationships\RelationshipTable;
+use Throwable;
+use ZipArchive;
+use DOMDocument;
+use function file_get_contents;
+use function file_put_contents;
 use function version_compare;
 
 class HIMSA
@@ -43,23 +49,61 @@ class HIMSA
     {
         $xsdRootPath = trim($xsdRootPath, '/');
 
-        if (version_compare(HIMSA::catalog($catalogFile)->version, '1.1.0', '<'))
-            return true;
+        $validator = new HIMSAValidator($catalogFile, $relationshipTableFile, $xsdRootPath);
+        $validator->validate();
 
-        libxml_use_internal_errors(true);
+        return $validator;
+    }
 
-        $xml = new DOMDocument();
-        $xml->loadXML(simplexml_load_file($catalogFile)->asXML());
+    public static function downloadSchemaFiles(string $rootFilePath): void
+    {
+        static $links = [
+            '1.1.0' => 'https://himsafiles.com/DataStandards/DataStandards/PDS/HIMSA_PDS_1.1.0%20.zip',
+        ];
 
-        if (!$xml->schemaValidate(storage_path("$xsdRootPath/ProductCatalog.xsd")))
-            return false;
+        $temp = "$rootFilePath/temp";
 
-        $xml = new DOMDocument();
-        $xml->loadXML(simplexml_load_file($relationshipTableFile)->asXML());
+        if (!file_exists($temp))
+            mkdir($temp);
 
-        if (!$xml->schemaValidate(storage_path("$xsdRootPath/Relationships/RelationshipTable.xsd")))
-            return false;
+        try
+        {
+            foreach ($links as $version => $link)
+            {
+                $tempFilePath = "$temp/$version.zip";
+                $schemaRootPath = "$rootFilePath/$version";
+                file_put_contents($tempFilePath, file_get_contents($link));
 
-        return true;
+                try
+                {
+                    $zip = new ZipArchive();
+
+                    if ($zip->open($tempFilePath))
+                    {
+                        if (!file_exists($schemaRootPath))
+                            mkdir($schemaRootPath);
+
+                        $zip->extractTo("$rootFilePath/$version");
+                        $zip->close();
+                    }
+                }
+                catch (Throwable $exception)
+                {
+                    throw $exception;
+                }
+                finally
+                {
+                    unlink($tempFilePath);
+                }
+            }
+        }
+        catch (Throwable $e)
+        {
+            throw $e;
+        }
+        finally
+        {
+            rmdir($temp);
+        }
     }
 }
