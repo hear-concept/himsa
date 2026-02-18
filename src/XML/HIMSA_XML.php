@@ -2,6 +2,7 @@
 
 namespace HearConcept\HIMSA\XML;
 
+use Closure;
 use Exception;
 use HearConcept\HIMSA\XML\Relationships\RelationshipTable;
 use Illuminate\Contracts\Support\Arrayable;
@@ -87,7 +88,7 @@ abstract class HIMSA_XML
             },
         };
 
-        if (is_callable($returnValue))
+        if ($returnValue instanceof Closure)
             return $returnValue();
 
         return $returnValue;
@@ -115,7 +116,7 @@ abstract class HIMSA_XML
      *
      * @return string|null
      */
-    public function key(): ?string
+    public function xmlKey(): ?string
     {
         return $this->attributes['xml_tag'] ?? null;
     }

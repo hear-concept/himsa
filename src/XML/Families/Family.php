@@ -14,7 +14,7 @@ use SimpleXMLElement;
  * @property-read string $Name
  * @property-read Collection|Product[] $ModelCollection
  */
-abstract class Family extends HIMSA_XML implements HAsLevelInformation
+abstract class Family extends HIMSA_XML implements HasLevelInformation
 {
     use HasLastModifiedDate;
 }
