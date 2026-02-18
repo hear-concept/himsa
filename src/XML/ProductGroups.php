@@ -37,7 +37,7 @@ class ProductGroups extends HIMSA_XML
         'AssistiveListeningDevices' => [Collection::class, 'Family', ALDFamily::class, NS::ALD],
         'Consumables' => [Collection::class, 'Family', CONFamily::class, NS::CON],
         'MarketingAndProductRelatedInformation' => [Collection::class, 'Family', null, NS::INFO],
-        'EarImpressionSupplies' => [Collection::class, 'Family', null, NS::SUP],
+        'EarImpressionSupplies' => [Collection::class, 'Family', SUPFamily::class, NS::SUP],
         'FittingEquipment' => [Collection::class, 'Family', FEFamily::class, NS::FE],
         'GenericHearingAidCapabilities' => [Collection::class, 'Family', GCFamily::class, NS::GC],
         'CustomShell' => [Collection::class, 'Family', null, NS::CSM],
