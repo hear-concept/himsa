@@ -120,4 +120,9 @@ abstract class HIMSA_XML
     {
         return $this->attributes['xml_tag'] ?? null;
     }
+
+    public function rawValue(string $key): mixed
+    {
+        return $this->xml[$key];
+    }
 }

@@ -14,8 +14,6 @@ use function version_compare;
 
 class HIMSA
 {
-    public static $strictMode = true;
-
     /**
      * Read a catalog file
      *
@@ -107,18 +105,5 @@ class HIMSA
         {
             rmdir($temp);
         }
-    }
-
-    /**
-     * Enable or disable strict mode
-     * Strict mode enables things like casting of enumeration values to PHP Enum
-     * If disabled all values will be returned as string instead
-     *
-     * @param bool $strictMode
-     * @return void
-     */
-    public static function setStrictMode(bool $strictMode): void
-    {
-
     }
 }
