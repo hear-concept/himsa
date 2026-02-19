@@ -14,15 +14,17 @@ use function version_compare;
 
 class HIMSA
 {
+    public static $strictMode = true;
+
     /**
      * Read a catalog file
      *
      * @param string $file
      * @return ProductCatalog
      */
-    public static function catalog(string $file, ?string $relationshipFile = null): ProductCatalog
+    public static function catalog(string $file): ProductCatalog
     {
-        return new ProductCatalog(simplexml_load_file($file), $relationshipFile);
+        return new ProductCatalog(simplexml_load_file($file));
     }
 
     /**
@@ -105,5 +107,18 @@ class HIMSA
         {
             rmdir($temp);
         }
+    }
+
+    /**
+     * Enable or disable strict mode
+     * Strict mode enables things like casting of enumeration values to PHP Enum
+     * If disabled all values will be returned as string instead
+     *
+     * @param bool $strictMode
+     * @return void
+     */
+    public static function setStrictMode(bool $strictMode): void
+    {
+
     }
 }
