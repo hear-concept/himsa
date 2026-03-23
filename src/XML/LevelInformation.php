@@ -28,4 +28,19 @@ class LevelInformation extends HIMSA_XML
         'NotMeantForSale' => 'boolean',
         'OrderDetails' => OrderDetails::class,
     ];
+
+    protected array $namespaces = [
+        NS::PI->value => [
+            'Identification',
+            'Dates',
+            'ProductDescription',
+            'ManufacturerItemDescription',
+        ],
+        NS::HA->value => [
+            'Serialized',
+            'Consignment',
+            'NotMeantForSale',
+            'OrderDetails',
+        ],
+    ];
 }
