@@ -7,6 +7,7 @@ use Exception;
 use HearConcept\HIMSA\XML\Relationships\RelationshipTable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection as SupportCollection;
 use SimpleXMLElement;
 use HearConcept\HIMSA\Enums\NS;
 use function doubleval;
@@ -134,5 +135,15 @@ abstract class HIMSA_XML
         }
 
         return $this->xml->$key;
+    }
+
+    public static function make(SimpleXMLElement $element): static
+    {
+        return new static($element);
+    }
+
+    public static function hydrate(array|SupportCollection $elements): Collection
+    {
+        return new Collection(collect($elements)->map(fn (SimpleXMLElement $element) => static::make($element))->toArray());
     }
 }
