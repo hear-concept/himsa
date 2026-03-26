@@ -123,6 +123,16 @@ abstract class HIMSA_XML
 
     public function rawValue(string $key): mixed
     {
-        return $this->xml[$key];
+        if ($this->xml->$key->count() > 1)
+        {
+            $items = [];
+
+            foreach ($this->xml->$key as $item)
+                $items[] = $item;
+
+            return $items;
+        }
+
+        return $this->xml->$key;
     }
 }
