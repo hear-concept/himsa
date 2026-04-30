@@ -2,6 +2,7 @@
 
 namespace HearConcept\HIMSA\XML\Products;
 
+use HearConcept\HIMSA\XML\HALevelInformation;
 use HearConcept\HIMSA\XML\Styles\{Style, StyleBTE, StyleCustom, StyleOther, StyleRIC};
 use HearConcept\HIMSA\XML\LevelInformation;
 use HearConcept\HIMSA\XML\MergedCollection;
@@ -17,7 +18,7 @@ class HearingAid extends Product
         'Name' => 'string',
         'Version' => 'string',
         'TierLevelName' => 'string',
-        'LevelInformation' => LevelInformation::class,
+        'LevelInformation' => HALevelInformation::class,
         'StyleCollection' => [MergedCollection::class, [
             'StyleBTE' => StyleBTE::class,
             'StyleRIC' => StyleRIC::class,
