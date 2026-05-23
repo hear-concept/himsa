@@ -9,6 +9,7 @@ use HearConcept\HIMSA\Enums\StyleType;
 use HearConcept\HIMSA\Traits\HasLastModifiedDate;
 use HearConcept\HIMSA\XML\Color;
 use HearConcept\HIMSA\XML\ColorStyleCustom;
+use HearConcept\HIMSA\XML\HAColor;
 use HearConcept\HIMSA\XML\HIMSA_XML;
 use HearConcept\HIMSA\XML\Collection;
 use HearConcept\HIMSA\XML\ElectricalAcoustic;
@@ -36,7 +37,7 @@ abstract class Style extends HIMSA_XML implements HasLevelInformation
         'Side' => Side::class,
         'BuildForBatterySizeCollection' => [Collection::class, 'BatterySize', BatterySize::class],
         'ElectricalAcousticCollection' => [Collection::class, 'ElectricalAcoustic', ElectricalAcoustic::class],
-        'ColorCollection' => [Collection::class, 'Color', Color::class],
+        'ColorCollection' => [Collection::class, 'Color', HAColor::class],
         'LevelInformation' => LevelInformation::class,
     ];
 
