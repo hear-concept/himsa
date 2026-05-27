@@ -16,6 +16,6 @@ class ColorStyleCustom extends HIMSA_XML implements HasLevelInformation
     protected array $casts = [
         'ShellColor' => ColorSelection::class,
         'FacePlateColor' => ColorSelection::class,
-        'LevelInformation' => LevelInformation::class,
+        'LevelInformation' => HALevelInformation::class,
     ];
 }
