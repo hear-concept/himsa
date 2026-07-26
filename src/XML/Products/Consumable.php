@@ -3,6 +3,8 @@
 namespace HearConcept\HIMSA\XML\Products;
 
 use HearConcept\HIMSA\Enums\NS;
+use HearConcept\HIMSA\XML\Collection;
+use HearConcept\HIMSA\XML\Color;
 use HearConcept\HIMSA\XML\LevelInformation;
 
 class Consumable extends Accessory
@@ -12,5 +14,6 @@ class Consumable extends Accessory
     protected array $casts = [
         'Name' => 'string',
         'LevelInformation' => LevelInformation::class,
+        'ColorCollection' => [Collection::class, 'Color', Color::class]
     ];
 }
